@@ -26,6 +26,7 @@ export const userSlice = createSlice({
       return { ...state, ...action.payload, status: "connected" };
     },
   },
+  extraReducers: (builder) => {},
 });
 export const { addFavorites, connect } = userSlice.actions;
 export default userSlice.reducer;
