@@ -7,7 +7,7 @@ import Coins from "./app/layouts/coins/Coins";
 
 function App() {
   return (
-    <div className="App grid grid-cols-6 grid-rows-7 h-screen">
+    <div className="App grid grid-cols-6 grid-rows-7 h-screen gap-3">
       <header className="col-start-1 col-end-7 row-start-1 row-end-2">
         My Storing with React-Redux and tailwind
       </header>
