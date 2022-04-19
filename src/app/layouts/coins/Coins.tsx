@@ -13,6 +13,7 @@ const Coins = () => {
     // "https://api.coingecko.com/api/v3/coins/list"
     "https://api.coingecko.com/api/v3/search/trending"
   );
+  console.log(dataCoins);
   const trendCoins = dataCoins.data ? dataCoins.data.coins : null;
 
   return (

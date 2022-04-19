@@ -8,8 +8,14 @@ const CoinPrice = ({ id }: any) => {
   const data = coinsInfo.data ?? Object.values(coinsInfo.data ?? {});
   const priceInfo: any = Object.values(data)[0];
   const eurPrice = priceInfo?.eur;
+  const eurMarketCap = priceInfo?.eur_market_cap;
 
-  return <>${eurPrice}</>;
+  return (
+    <>
+      <td className="p-3 text-sm text-left">${eurPrice}</td>
+      <td className="p-3 text-sm">${eurMarketCap}</td>
+    </>
+  );
 };
 
 export default CoinPrice;

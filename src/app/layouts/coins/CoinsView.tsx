@@ -1,4 +1,7 @@
+// import CoinGraphic from "../../components/coins-data/CoinGraphic";
 import CoinPrice from "../../components/coins-data/CoinPrice";
+import { Bar, Chart } from "react-chartjs-2";
+import CoinGraphic from "../../components/coins-data/CoinGraphic";
 
 const CoinsView = (props: any) => {
   const { data } = props;
@@ -8,6 +11,7 @@ const CoinsView = (props: any) => {
         <table className="">
           <thead className="border-b-2 border-grey-600">
             <tr className="">
+              <th className="thumb p-3 text-center"> </th>
               <th
                 className="p-3 font-semibold tracking-wide text-center"
                 data-priority="1"
@@ -36,7 +40,7 @@ const CoinsView = (props: any) => {
                 Market Cap
               </th>
               <th
-                className="p-3 font-semibold tracking-wide text-center"
+                className="p-3 font-semibold tracking-wide  text-center"
                 data-priority="5"
               >
                 Graphic
@@ -52,6 +56,14 @@ const CoinsView = (props: any) => {
                 key={c.item.id}
                 className="odd:bg-white even:bg-gray-600 even:text-white hover:ring"
               >
+                <td className="p-3 w-5">
+                  <img
+                    src={c.item.thumb}
+                    alt="crypto-logo"
+                    className="w-5"
+                  ></img>
+                </td>
+
                 <td className="p-3 text-sm font-medium capitalize tracking-wide font-sans truncate text-left">
                   {c.item.name}
                 </td>
@@ -59,11 +71,11 @@ const CoinsView = (props: any) => {
                 <td className="p-3 text-sm italic font-medium">
                   {c.item.market_cap_rank}
                 </td>
-                <td className="p-3 text-sm text-left">
-                  <CoinPrice id={c.item.id} />
+                <CoinPrice id={c.item.id} />
+
+                <td className="p-3 text-sm">
+                  <CoinGraphic />
                 </td>
-                <td className="p-3 text-sm">$321.375.656,43</td>
-                <td className="p-3 text-sm">Graphic</td>
                 <td className="p-3 text-sm">
                   <input type="radio"></input>
                 </td>
@@ -73,7 +85,10 @@ const CoinsView = (props: any) => {
         </table>
       </div>
       {props.data?.map((c: any) => (
-        <div className="grid grid-cols-1 gap-4 hover:grey-400 sm:hidden">
+        <div
+          key={c.id}
+          className="grid grid-cols-1 gap-4 hover:grey-400 sm:hidden"
+        >
           <div className="bg-grey p-4 rounded-lg shadows">
             <div className="flex items-center text-sm space-x-2">
               <div className="text-blue-400 font-bold hover:underline">23</div>
