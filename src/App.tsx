@@ -12,7 +12,10 @@ function App() {
         My Storing with React-Redux and tailwind
       </header>
       <Menu />
-      <div className="col-start-2 col-end-7 justify-self-center row-start-3 row-end-6">
+      <div
+        className="col-start-2 col-end-7 justify-self-center w-full
+        row-start-3 row-end-6  bg-slate-100 "
+      >
         <Routes>
           <Route path="/" element={<Coins />} />
           <Route path="/user" element={<User />} />

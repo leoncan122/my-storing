@@ -1,52 +1,67 @@
+import CoinPrice from "../../components/coins-data/CoinPrice";
+
 const CoinsView = (props: any) => {
+  const { data } = props;
   return (
     <>
-      <div className="overflow-auto rounded-lg max-w-md hidden sm:block">
-        <table className="w-full">
+      <div className="table_container  overflow-auto rounded-lg hidden sm:block filter drop-shadow w-full">
+        <table className="">
           <thead className="border-b-2 border-grey-600">
             <tr className="">
               <th
-                className="p-3 font-semibold tracking-wide text-left"
+                className="p-3 font-semibold tracking-wide text-center"
                 data-priority="1"
               >
                 Name
               </th>
+              <th className="p-3 font-semibold tracking-wide text-center">
+                Symbol
+              </th>
               <th
-                className="p-3 font-semibold tracking-wide text-left"
+                className="p-3 font-semibold tracking-wide text-center"
                 data-priority="2"
               >
-                Position
+                Position Market
               </th>
               <th
-                className="p-3 font-semibold tracking-wide text-left"
+                className="p-3 font-semibold tracking-wide text-center"
                 data-priority="3"
               >
-                price
+                Price
               </th>
               <th
-                className="p-3 font-semibold tracking-wide text-left"
+                className="p-3 font-semibold tracking-wide text-center"
                 data-priority="4"
               >
                 Market Cap
               </th>
               <th
-                className="p-3 font-semibold tracking-wide text-left"
+                className="p-3 font-semibold tracking-wide text-center"
                 data-priority="5"
               >
                 Graphic
               </th>
-              <th>Add favorite</th>
+              <th className="p-3 font-semibold tracking-wide text-center">
+                Add favorite
+              </th>
             </tr>
           </thead>
           <tbody>
-            {props.data?.map((c: any) => (
+            {data?.map((c: any) => (
               <tr
-                key={c.id}
+                key={c.item.id}
                 className="odd:bg-white even:bg-gray-600 even:text-white hover:ring"
               >
-                <td className="p-3 text-sm">{c.symbol}</td>
-                <td className="p-3 text-sm">1</td>
-                <td className="p-3 text-sm">$213.31</td>
+                <td className="p-3 text-sm font-medium capitalize tracking-wide font-sans truncate text-left">
+                  {c.item.name}
+                </td>
+                <td className="p-3 text-sm  font-light">{c.item.symbol}</td>
+                <td className="p-3 text-sm italic font-medium">
+                  {c.item.market_cap_rank}
+                </td>
+                <td className="p-3 text-sm text-left">
+                  <CoinPrice id={c.item.id} />
+                </td>
                 <td className="p-3 text-sm">$321.375.656,43</td>
                 <td className="p-3 text-sm">Graphic</td>
                 <td className="p-3 text-sm">
