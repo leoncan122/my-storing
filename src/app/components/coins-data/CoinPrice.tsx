@@ -1,3 +1,4 @@
+import { useCallback } from "react";
 import useFetch from "../../hooks/useFetch";
 
 const CoinPrice = ({ id }: any) => {
@@ -10,10 +11,17 @@ const CoinPrice = ({ id }: any) => {
   const eurPrice = priceInfo?.eur;
   const eurMarketCap = priceInfo?.eur_market_cap;
 
+  const memoFunction = useCallback((num) => {
+    return Math.round((num + Number.EPSILON) * 100) / 100;
+  }, []);
+  // function mathRound(num: number): number {
+  //   return Math.round((num + Number.EPSILON) * 100) / 100;
+  // }
+
   return (
     <>
       <td className="p-3 text-sm text-left">${eurPrice}</td>
-      <td className="p-3 text-sm">${eurMarketCap}</td>
+      <td className="p-3 text-sm">${memoFunction(eurMarketCap)}</td>
     </>
   );
 };
