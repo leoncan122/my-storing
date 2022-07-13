@@ -13,7 +13,7 @@ const AuthLogin = () => {
   const fetchOneUser = async () => {
     // e.preventDefault();
     try {
-      const user = await dispatch(fetchLogin());
+      const user = dispatch<any>(fetchLogin());
 
       console.log(user);
       navigate("/");
